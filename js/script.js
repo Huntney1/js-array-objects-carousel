@@ -1,4 +1,53 @@
 
+
+
+//Creo array immagini
+const carouselObjects  = 
+[
+    { 
+        image : "01.webp",
+        title : "Marvel Spiderman Miles Morale",
+        intro : "Experience the rise of Miles Morales as the new hero masters incredible, explosive new powers to become his own Spider-Man"
+    },
+    {
+        image : "02.webp",
+        title : "Ratchet Clank",
+        intro : "Ratchet and Clank tells the story of two unlikely heroes as they struggle to stop a vile alien named Chairman Drek from destroying every planet in the Solana Galaxy."
+    },
+    {
+        image : "03.webp",
+        title : "Fortnite",
+        intro : "Players collaborate to survive in an open-world environment, by battling other characters who are controlled either by the game itself, or by other players"
+    },
+    {
+        image : "04.webp",
+        title : "Stray",
+        intro : "Stray is a third-person cat adventure game set amidst the detailed, neon-lit alleys of a decaying cybercity and the murky environments of its seedy underbelly."
+    },
+    {
+        image : "05.webp",
+        title : "Avengers",
+        intro : "The Avengers began as a group of extraordinary individuals who were assembled to defeat Loki and his Chitauri army in New York City"
+    }
+];
+
+//Creiamo dinamicamente i div con le immagini del carosello
+let itemsContent = '';
+let itemsThumbnails = '';
+
+for(let i = 0; i < carouselObjects.length; i++){
+    itemsContent += `<div class="item">
+        <img src="./img/${carouselObjects[i].image}">
+        <div class="info">
+        <h3 class="titolo" >${carouselObjects[i].title}</h3>
+        <p class="descrizione">${carouselObjects[i].intro}</p>
+        </div>
+    </div>`
+
+    itemsThumbnails += `<div class="thumb"><img src="./img/${carouselObjects[i].image}">
+    </div>`
+}
+
 // DEFINISCO LA FUNZIONE NEXT E PREV
 
 function goToNextSlide(){
@@ -77,53 +126,6 @@ function goToPrevSlide(){
 
     }
 };
-
-//Creo array immagini
-const carouselObjects  = 
-[
-    { 
-        image : "01.webp",
-        title : "Marvel Spiderman Miles Morale",
-        intro : "Experience the rise of Miles Morales as the new hero masters incredible, explosive new powers to become his own Spider-Man"
-    },
-    {
-        image : "02.webp",
-        title : "Ratchet Clank",
-        intro : "Ratchet and Clank tells the story of two unlikely heroes as they struggle to stop a vile alien named Chairman Drek from destroying every planet in the Solana Galaxy."
-    },
-    {
-        image : "03.webp",
-        title : "Fortnite",
-        intro : "Players collaborate to survive in an open-world environment, by battling other characters who are controlled either by the game itself, or by other players"
-    },
-    {
-        image : "04.webp",
-        title : "Stray",
-        intro : "Stray is a third-person cat adventure game set amidst the detailed, neon-lit alleys of a decaying cybercity and the murky environments of its seedy underbelly."
-    },
-    {
-        image : "05.webp",
-        title : "Avengers",
-        intro : "The Avengers began as a group of extraordinary individuals who were assembled to defeat Loki and his Chitauri army in New York City"
-    }
-];
-
-//Creiamo dinamicamente i div con le immagini del carosello
-let itemsContent = '';
-let itemsThumbnails = '';
-
-for(let i = 0; i < carouselObjects.length; i++){
-    itemsContent += `<div class="item">
-        <img src="./img/${carouselObjects[i].image}">
-        <div class="info">
-        <h3 class="titolo" >${carouselObjects[i].title}</h3>
-        <p class="descrizione">${carouselObjects[i].intro}</p>
-        </div>
-    </div>`
-
-    itemsThumbnails += `<div class="thumb"><img src="./img/${carouselObjects[i].image}">
-    </div>`
-}
 
 //inseriamo le immagini nel div che le deve contenere
 const itemsSlider = document.querySelector('.item-slider');
