@@ -54,7 +54,7 @@ for (let i = 0; i < imagesArray.length; i++) {
     <h3> class = "titolo" >${imagesArray[i].title}<h3>
     <p class = "descrizione" >${imagesArray[i].description}p>`
 
-    itemsThubnails += `<div class="thumb"><img src ="./img/${imagesArray[i].img}">`
+    itemsThubnails += `<div class="thumb"><img src ="./img/${imagesArray[i].img}"></div>`
 }
 
 //inseriamo le immagini nel div che le deve contenere
