@@ -82,27 +82,27 @@ function goToPrevSlide(){
 const carouselObjects  = 
 [
     { 
-        img : "01.webp",
+        image : "01.webp",
         title : "Marvel Spiderman Miles Morale",
         intro : "Experience the rise of Miles Morales as the new hero masters incredible, explosive new powers to become his own Spider-Man"
     },
     {
-        img : "02.webp",
+        image : "02.webp",
         title : "Ratchet Clank",
         intro : "Ratchet and Clank tells the story of two unlikely heroes as they struggle to stop a vile alien named Chairman Drek from destroying every planet in the Solana Galaxy."
     },
     {
-        img : "03.webp",
+        image : "03.webp",
         title : "Fortnite",
         intro : "Players collaborate to survive in an open-world environment, by battling other characters who are controlled either by the game itself, or by other players"
     },
     {
-        img : "04.webp",
+        image : "04.webp",
         title : "Stray",
         intro : "Stray is a third-person cat adventure game set amidst the detailed, neon-lit alleys of a decaying cybercity and the murky environments of its seedy underbelly."
     },
     {
-        img : "05.webp",
+        image : "05.webp",
         title : "Avengers",
         intro : "The Avengers began as a group of extraordinary individuals who were assembled to defeat Loki and his Chitauri army in New York City"
     }
@@ -114,14 +114,14 @@ let itemsThumbnails = '';
 
 for(let i = 0; i < carouselObjects.length; i++){
     itemsContent += `<div class="item">
-        <img src="./img/${carouselObjects[i].img}">
+        <img src="./img/${carouselObjects[i].image}">
         <div class="info">
         <h3 class="titolo" >${carouselObjects[i].title}</h3>
         <p class="descrizione">${carouselObjects[i].intro}</p>
         </div>
     </div>`
 
-    itemsThumbnails += `<div class="thumb"><img src="./img/${carouselObjects[i].img}">
+    itemsThumbnails += `<div class="thumb"><img src="./img/${carouselObjects[i].image}">
     </div>`
 }
 
