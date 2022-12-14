@@ -49,7 +49,7 @@ let itemsThubnails = '';
 
 for (let i = 0; i < imagesArray.length; i++) {
     itemsContent += `<div class="item">
-        <img src ="./img/${imagesArray[i].img}">
+        <img src ="./img/${imagesArray[i].image}">
     </div>
     <h3> class = "titolo" >${imagesArray[i].title}<h3>
     <p class = "descrizione" >${imagesArray[i].description}p>`
@@ -62,6 +62,8 @@ const itemsSlider = document.querySelector('.item-slider');
 itemsSlider.innerHTML += itemsContent;
 
 //Prendiamo la prima immagine dell'array e la rendiamo attiva
+const thubnailsPreview = document.querySelector('.thubnails');
+itemsSlider.innerHTML += itemsThubnails;
 
 //const items = document.querySelector('.item'); //ALTERNATIVA
 
