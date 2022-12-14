@@ -1,76 +1,150 @@
+
+// DEFINISCO LA FUNZIONE NEXT E PREV
+
+function goToNextSlide(){
+    if(itemActive < items.length - 1){
+        
+        items[itemActive].classList.remove('active');
+        circles[itemActive].classList.remove('active');
+        title[itemActive].classList.remove('active');
+        description[itemActive].classList.remove('active');
+        thumbnails[itemActive].classList.remove('active');
+
+        itemActive++;
+
+        items[itemActive].classList.add('active');
+        circles[itemActive].classList.add('active');
+        title[itemActive].classList.add('active');
+        description[itemActive].classList.add('active');
+        thumbnails[itemActive].classList.add('active');
+
+    }
+    else{
+
+        items[itemActive].classList.remove('active');
+        circles[itemActive].classList.remove('active');
+        title[itemActive].classList.remove('active');
+        description[itemActive].classList.remove('active');
+        thumbnails[itemActive].classList.remove('active');
+
+
+        itemActive = 0;
+
+        items[itemActive].classList.add('active');
+        circles[itemActive].classList.add('active');
+        title[itemActive].classList.add('active');
+        description[itemActive].classList.add('active');
+        thumbnails[itemActive].classList.add('active');
+
+    }
+};
+
+function goToPrevSlide(){
+    if(itemActive > 0){
+
+        items[itemActive].classList.remove('active');
+        circles[itemActive].classList.remove('active');
+        title[itemActive].classList.remove('active');
+        description[itemActive].classList.remove('active');
+        thumbnails[itemActive].classList.remove('active');
+
+
+        itemActive--;
+
+        items[itemActive].classList.add('active');
+        circles[itemActive].classList.add('active');
+        title[itemActive].classList.add('active');
+        description[itemActive].classList.add('active');
+        thumbnails[itemActive].classList.add('active');
+
+    }
+
+    else{
+
+        items[itemActive].classList.remove('active');
+        circles[itemActive].classList.remove('active');
+        title[itemActive].classList.remove('active');
+        description[itemActive].classList.remove('active');
+        thumbnails[itemActive].classList.remove('active');
+
+        itemActive = items.length - 1;
+
+        items[itemActive].classList.add('active');
+        circles[itemActive].classList.add('active');
+        title[itemActive].classList.add('active');
+        description[itemActive].classList.add('active');
+        thumbnails[itemActive].classList.add('active');
+
+    }
+};
+
 //Creo array immagini
-
-/* const imagesArray = [
-    "01.webp",
-    "02.webp",
-    "03.webp",
-    "04.webp",
-    "05.webp"
-]
- */
-
-const imagesArray = [
-    {
-        image: "01.webp",
-        title: "Spiderman",
-        description: " Gioco d'avventura mondo marvel ",
-
+const carouselObjects  = 
+[
+    { 
+        img : "01.webp",
+        title : "Marvel Spiderman Miles Morale",
+        intro : "Experience the rise of Miles Morales as the new hero masters incredible, explosive new powers to become his own Spider-Man"
     },
     {
-        image: "02.webp",
-        title: "Rachet",
-        description: "Gioco d'avventura fantasy",
-
+        img : "02.webp",
+        title : "Ratchet Clank",
+        intro : "Ratchet and Clank tells the story of two unlikely heroes as they struggle to stop a vile alien named Chairman Drek from destroying every planet in the Solana Galaxy."
     },
     {
-        image: "03.webp",
-        title: "Fortnite",
-        description: "spara tutto fantasy ",
-
+        img : "03.webp",
+        title : "Fortnite",
+        intro : "Players collaborate to survive in an open-world environment, by battling other characters who are controlled either by the game itself, or by other players"
     },
     {
-        image: "04.webp",
-        title: "Stray",
-        description: "Gioco mediocre",
-
+        img : "04.webp",
+        title : "Stray",
+        intro : "Stray is a third-person cat adventure game set amidst the detailed, neon-lit alleys of a decaying cybercity and the murky environments of its seedy underbelly."
     },
     {
-        image: "05.webptitle",
-        titolo:"Marvel",
-        description: "Gioco d'avventura mondo marvel",
-
-    },
-
+        img : "05.webp",
+        title : "Avengers",
+        intro : "The Avengers began as a group of extraordinary individuals who were assembled to defeat Loki and his Chitauri army in New York City"
+    }
 ];
 
 //Creiamo dinamicamente i div con le immagini del carosello
 let itemsContent = '';
-let itemsThubnails = '';
+let itemsThumbnails = '';
 
-for (let i = 0; i < imagesArray.length; i++) {
+for(let i = 0; i < carouselObjects.length; i++){
     itemsContent += `<div class="item">
-        <img src ="./img/${imagesArray[i].image}">
-    </div>
-    <h3> class = "titolo" >${imagesArray[i].title}<h3>
-    <p class = "descrizione" >${imagesArray[i].description}p>`
+        <img src="./img/${carouselObjects[i].img}">
+        <div class="info">
+        <h3 class="titolo" >${carouselObjects[i].title}</h3>
+        <p class="descrizione">${carouselObjects[i].intro}</p>
+        </div>
+    </div>`
 
-    itemsThubnails += `<div class="thumb"><img src ="./img/${imagesArray[i].img}"></div>`
+    itemsThumbnails += `<div class="thumb"><img src="./img/${carouselObjects[i].img}">
+    </div>`
 }
 
 //inseriamo le immagini nel div che le deve contenere
 const itemsSlider = document.querySelector('.item-slider');
 itemsSlider.innerHTML += itemsContent;
 
+const thumbnailsPreview = document.querySelector('.thumbnails')
+thumbnailsPreview.innerHTML += itemsThumbnails;
+
 //Prendiamo la prima immagine dell'array e la rendiamo attiva
-const thubnailsPreview = document.querySelector('.thubnails');
-itemsSlider.innerHTML += itemsThubnails;
 
 //const items = document.querySelector('.item'); //ALTERNATIVA
 
 const items = document.getElementsByClassName('item');
+const title = document.getElementsByClassName('titolo');
+const description = document.getElementsByClassName('descrizione');
+
 let itemActive = 0;
 
 items[itemActive].classList.add('active');
+title[itemActive].classList.add('active');
+description[itemActive].classList.add('active');
 
 //rendo attivo anche il primo cerchio di navigazione
 
@@ -78,71 +152,34 @@ const circles = document.getElementsByClassName('circle');
 
 circles[itemActive].classList.add('active');
 
+const thumbnails = document.getElementsByClassName('thumb');
+
 const prev = document.querySelector('.prev');
 const next = document.querySelector('.next');
 
-next.addEventListener('click', function () {
-    if (itemActive < imagesArray.length - 1) {
-        //verifico l'elemento attivo (itemActive)
-        items[itemActive].classList.remove('active');
-        circles[itemActive].classList.remove('active');
-        //incremento il suo valore di 1
-        itemActive++;
-        //aggiungere la class active al nuovo elemento dell'array items e la vado a rimuovere da quello precedente
-        items[itemActive].classList.add('active');
-        //stessa cosa per i cerchi
-        items[itemActive].classList.add('active');
-
-    }
-    else {
-        items[itemActive].classList.remove('active');
-        circles[itemActive].classList.remove('active');
-        itemActive = 0;
-        items[itemActive].classList.add('active');
-        items[itemActive].classList.add('active');
-    }
+next.addEventListener('click', function(){
+    goToNextSlide();
 });
 
-prev.addEventListener('click', function () {
-    if (itemActive > 0) {
-        //verifico l'elemento attivo (itemActive)
-        items[itemActive].classList.remove('active');
-        circles[itemActive].classList.remove('active');
-        //incremento il suo valore di 1
-        itemActive--;
-        //aggiungere la class active al nuovo elemento dell'array items e la vado a rimuovere da quello precedente
-        items[itemActive].classList.add('active');
-        //stessa cosa per i cerchi
-        items[itemActive].classList.add('active');
+prev.addEventListener('click', function(){
+    goToPrevSlide();
+});
 
-    }
-    else {
-        items[itemActive].classList.remove('active');
-        circles[itemActive].classList.remove('active');
-        itemActive = imagesArray.length - 1;
-        items[itemActive].classList.add('active');
-        items[itemActive].classList.add('active');
-    }
-})
-let Interval = setInterval(function () {
-    if (itemActive < imagesArray.length - 1) {
-        //verifico l'elemento attivo (itemActive)
-        items[itemActive].classList.remove('active');
-        circles[itemActive].classList.remove('active');
-        //incremento il suo valore di 1
-        itemActive++;
-        //aggiungere la class active al nuovo elemento dell'array items e la vado a rimuovere da quello precedente
-        items[itemActive].classList.add('active');
-        //stessa cosa per i cerchi
-        items[itemActive].classList.add('active');
+const autoplay_btn = document.getElementById("auto")
+let myInterval = setInterval(goToNextSlide, 2500);
 
-    }
-    else {
-        items[itemActive].classList.remove('active');
-        circles[itemActive].classList.remove('active');
-        itemActive = 0;
-        items[itemActive].classList.add('active');
-        items[itemActive].classList.add('active');
-    }
-}, 1550)
+autoplay_btn.addEventListener('click', function(){
+    clearInterval(myInterval);
+    myInterval = setInterval(goToNextSlide, 1000);
+});
 
+const stop_btn = document.getElementById("stop")
+stop_btn.addEventListener('click', function(){
+    clearInterval(myInterval);
+});
+
+const reverse_btn = document.getElementById("reverse")
+reverse_btn.addEventListener('click', function(){
+    clearInterval(myInterval);
+    myInterval = setInterval(goToPrevSlide, 1000);
+});

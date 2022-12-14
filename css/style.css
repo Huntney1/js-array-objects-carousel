@@ -17,6 +17,29 @@
     position:relative;
 }
 
+.thumbnails{
+    float: right;
+    display: flex;
+    flex-direction: column;
+    height: 50vh;
+    background: black ;
+}
+
+.thumb{
+    width: 100%;
+    height: calc(100% / 5);
+    opacity: 0.5;
+}
+
+.thumb.active{
+    opacity: 1;
+}
+
+.thumb img{
+    width: 100%;
+    object-fit: cover;
+}
+
 .item{
     display: none;
 }
@@ -77,4 +100,28 @@
 
 .circle.active, .circle:hover{
     background-color: rgba(174, 174, 174, 1); 
+}
+
+.buttons{
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+    font-size: 20px;
+}
+
+button{
+    padding: 10px 15px;
+    margin: 20px;
+    border: none;
+    background-color: cornflowerblue;
+    color: beige;
+}
+
+.info{
+    position: absolute;
+    bottom: 20px;
+    right: 10px;
+    text-align: right;
+    color: white;
+    padding-left: 30px;
 }
