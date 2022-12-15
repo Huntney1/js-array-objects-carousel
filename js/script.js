@@ -2,7 +2,7 @@
 
 
 //Creo array immagini
-const carouselObjects  = 
+const listGame  = 
 [
     { 
         image : "01.webp",
@@ -35,16 +35,16 @@ const carouselObjects  =
 let itemsContent = '';
 let itemsThumbnails = '';
 
-for(let i = 0; i < carouselObjects.length; i++){
+for(let i = 0; i < listGame.length; i++){
     itemsContent += `<div class="item">
-        <img src="./img/${carouselObjects[i].image}">
+        <img src="./img/${listGame[i].image}">
         <div class="info">
-        <h3 class="titolo" >${carouselObjects[i].title}</h3>
-        <p class="descrizione">${carouselObjects[i].intro}</p>
+        <h3 class="titolo" >${listGame[i].title}</h3>
+        <p class="descrizione">${listGame[i].intro}</p>
         </div>
     </div>`
 
-    itemsThumbnails += `<div class="thumb"><img src="./img/${carouselObjects[i].image}">
+    itemsThumbnails += `<div class="thumb"><img src="./img/${listGame[i].image}">
     </div>`
 }
 
